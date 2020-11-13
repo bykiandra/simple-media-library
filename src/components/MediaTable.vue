@@ -13,7 +13,7 @@
       <th class="text-center">Actions</th>
     </thead>
     <tbody slot="body" slot-scope="{ displayData }">
-      <tr v-for="row in displayData" :key="row.title" :row="row">
+      <tr v-for="row in displayData" :key="row.title">
         <td class="text-center">{{ row.type }}</td>
         <td>{{ row.title }}</td>
         <td class="text-center">{{ row.status }}</td>

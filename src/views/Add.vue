@@ -58,6 +58,7 @@ export default {
         let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
         
         store.set(newTitle, {
+          title: newTitle,
           type: newType,
           status: newStatus,
           rating: newRating,
