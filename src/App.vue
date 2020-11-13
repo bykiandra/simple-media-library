@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <h1>Simple Media Library</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -10,11 +10,10 @@
 </template>
 
 <style>
-#app {
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 

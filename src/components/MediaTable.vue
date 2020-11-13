@@ -2,8 +2,7 @@
   <v-table
     :data="data"
     :hideSortIcons="true"
-    class="striped-table"
-  >
+    class="striped-table">
     <thead slot="head">
       <th class="text-center">Type</th>
       <th>Title</th>
@@ -15,9 +14,9 @@
     </thead>
     <tbody slot="body" slot-scope="{ displayData }">
       <tr v-for="row in displayData" :key="row.title" :row="row">
-        <td class="text-center">{{ row.Type }}</td>
+        <td class="text-center">{{ row.type }}</td>
         <td>{{ row.title }}</td>
-        <td class="text-center">{{ row.Status }}</td>
+        <td class="text-center">{{ row.status }}</td>
         <td>{{ row.rating }}</td>
         <td>{{ row.author }}</td>
         <td>{{ row.link }}</td>
@@ -47,7 +46,7 @@ import store from "store2";
 
 export default {
   name: "MediaTable",
-  computed () {
+  computed: {
     data: () => {
       return store();
     }
