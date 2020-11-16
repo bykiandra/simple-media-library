@@ -9,3 +9,5 @@
 ### Credits
 * [Primitive UI](https://taniarascia.github.io/primitive/index.html)
 * [Tabler Icons](https://tablericons.com/)
+
+Hosted by [Vercel](https://vercel.com)
