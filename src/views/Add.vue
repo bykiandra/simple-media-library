@@ -62,8 +62,13 @@ export default {
         let newRating = document.getElementById("rating").value;
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
         let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
+
+        newId = 1;
+        while (store.has(newId)) {
+          newId++;
+        }
         
-        store.set(newTitle, {
+        store.set(newId, {
           title: newTitle,
           type: newType,
           status: newStatus,
