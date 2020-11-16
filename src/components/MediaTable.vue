@@ -20,7 +20,7 @@
         <td v-if="row.title" class="text-center">{{ row.status }}</td>
         <td v-if="row.title">{{ row.rating }}</td>
         <td v-if="row.title">{{ row.author }}</td>
-        <td v-if="row.title">{{ row.link }}</td>
+        <td v-if="row.title" class="text-center"><a :href="row.link" target="_blank">🔗</a></td>
         <td v-if="row.title" class="text-center">
           <router-link :to="{ name: 'Edit', params: { id: row.id } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
