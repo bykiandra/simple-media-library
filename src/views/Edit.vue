@@ -42,7 +42,7 @@
       <label for="link">Link</label>
       <input type="text" name="link" id="link" :value="entry.links">
       <button type="submit">Edit</button>&nbsp;
-      <button type="reset" class="muted-button">Clear</button>
+      <a href="router.go(-1)" class="button muted-button">Back</a>
     </form>
   </div>
 </template>

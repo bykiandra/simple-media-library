@@ -54,3 +54,9 @@ export default {
   }
 }
 </script>
+
+<style>
+svg {
+  margin-bottom: -6px;
+}
+</style>
