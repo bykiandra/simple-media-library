@@ -15,6 +15,9 @@
       </svg></router-link>
     </div>
     <router-view/>
+    <div id="footer">
+      Built by <a href="https://github.com/Saoskia" target="_blank">Saoskia</a> | <a href="https://github.com/Saoskia/simple-media-library" target="_blank">GitHub</a>
+    </div>
   </div>
 </template>
 
@@ -31,5 +34,9 @@
 }
 svg {
   margin-top: -10px;
+}
+#footer {
+  font-size: 12px;
+  margin-top: 40px;
 }
 </style>
