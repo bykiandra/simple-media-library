@@ -14,13 +14,14 @@
     </thead>
     <tbody slot="body" slot-scope="{ displayData }">
       <tr v-for="row in displayData" :key="row.title">
-        <td class="text-center">{{ row.type }}</td>
-        <td>{{ row.title }}</td>
-        <td class="text-center">{{ row.status }}</td>
-        <td>{{ row.rating }}</td>
-        <td>{{ row.author }}</td>
-        <td>{{ row.links }}</td>
-        <td class="text-center">
+        <!-- FIX: v-if required to hide erroneous data -->
+        <td v-if="row.title" class="text-center">{{ row.type }}</td>
+        <td v-if="row.title">{{ row.title }}</td>
+        <td v-if="row.title" class="text-center">{{ row.status }}</td>
+        <td v-if="row.title">{{ row.rating }}</td>
+        <td v-if="row.title">{{ row.author }}</td>
+        <td v-if="row.title">{{ row.link }}</td>
+        <td v-if="row.title" class="text-center">
           <router-link :to="{ name: 'Edit', params: { title: row.title } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />

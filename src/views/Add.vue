@@ -54,7 +54,7 @@ export default {
         let newStatus = document.getElementById("status").value;
         let newRating = document.getElementById("rating").value;
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
-        let newLinks = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
+        let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
         
         store.set(newTitle, {
           title: newTitle,
@@ -62,8 +62,8 @@ export default {
           status: newStatus,
           rating: newRating,
           author: newAuthor,
-          links: newLinks     // Links because link gives back some unwanted data
-        }); // FIX: unwanted data still present
+          link: newLink
+        });
 
         document.getElementById("success").innerHTML = "<strong>" + newTitle + "</strong> has been successfully added.";
         document.getElementById("success").classList.remove("hide");
