@@ -3,7 +3,7 @@
     <h3>Edit</h3>
     <p id="success" class="hide"></p>
     <p id="error" class="hide"></p>
-    <form id="editForm" @submit.prevent="editEntry(entry.title)">
+    <form id="editForm" @submit.prevent="editEntry(entry)">
       <label for="title">Title</label>
       <input type="text" name="title" id="title" :value="entry.title">
       <label for="type">Type</label>
@@ -54,11 +54,11 @@ export default {
   name: "Edit",
   data() {
     return {
-      entry: store(this.$route.params.title)
+      entry: store(this.$route.params.id)
     }
   },
   methods: {
-    editEntry(oldTitle) {
+    editEntry(oldId) {
       // Remove any prior messages
       let success = document.getElementById("success");
       let error = document.getElementById("error");
@@ -72,16 +72,15 @@ export default {
         let newStatus = document.getElementById("status").value;
         let newRating = document.getElementById("rating").value;
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
-        let newLinks = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
+        let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
         
-        store.remove(oldTitle);
-        store.set(newTitle, {
+        store.set(entry, {
           title: newTitle,
           type: newType,
           status: newStatus,
           rating: newRating,
           author: newAuthor,
-          links: newLinks
+          links: newLink
         });
 
         success.innerHTML = "<strong>" + newTitle + "</strong> has been successfully updated.";
