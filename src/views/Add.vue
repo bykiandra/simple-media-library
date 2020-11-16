@@ -29,7 +29,14 @@
         <option value="Finished">Finished</option>
       </select>
       <label for="rating">Rating</label>
-      <input type="number" name="rating" id="rating" min="0" max="5" value="0">
+      <select name="rating" id="rating">
+        <option selected value=""></option>
+        <option value="⭐️">⭐️</option>
+        <option value="⭐️⭐️">⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️">⭐️⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️</option>
+        <option value="⭐️⭐️⭐️⭐️⭐️">⭐️⭐️⭐️⭐️⭐️</option>
+      </select>
       <label for="author">Author</label>
       <input type="text" name="author" id="author">
       <label for="link">Link</label>
