@@ -28,7 +28,7 @@
             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
             <line x1="16" y1="5" x2="19" y2="8" />
           </svg></router-link>
-          <router-link :to="{ name: 'Delete', params: { id: row } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F44336" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <router-link :to="{ name: 'Delete', params: { id: row.id } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F44336" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <line x1="4" y1="7" x2="20" y2="7" />
             <line x1="10" y1="11" x2="10" y2="17" />
