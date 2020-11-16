@@ -63,7 +63,7 @@ export default {
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
         let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
 
-        newId = 1;
+        var newId = 1;
         while (store.has(newId)) {
           newId++;
         }
