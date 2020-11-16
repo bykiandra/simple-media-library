@@ -1,19 +1,11 @@
-# simple-media-library
+# Simple Media Library
 
-## Project setup
-```
-npm install
-```
+**Simple Media Library** is a simple web application that allows you to keep track of things like books, movies, and podcasts. It allows you to give your media a status and a rating, and there's also the option of providing a link to an external site (for example, perhaps you want to link to a movies page on IMDB). All the data is stored in `localStorage`.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Packages Used  
+* [store2](https://www.npmjs.com/package/store2)
+* [vuejs-smart-table](https://www.npmjs.com/package/vuejs-smart-table)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Credits
+* [Primitive UI](https://taniarascia.github.io/primitive/index.html)
+* [Tabler Icons](https://tablericons.com/)
