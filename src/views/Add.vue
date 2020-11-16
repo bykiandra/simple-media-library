@@ -69,6 +69,7 @@ export default {
         }
         
         store.set(newId, {
+          id: newId,
           title: newTitle,
           type: newType,
           status: newStatus,

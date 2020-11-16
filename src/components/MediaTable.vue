@@ -13,7 +13,7 @@
       <th class="text-center">Actions</th>
     </thead>
     <tbody slot="body" slot-scope="{ displayData }">
-      <tr v-for="row in displayData" :key="row">
+      <tr v-for="row in displayData" :key="row.id">
         <!-- FIX: v-if required to hide erroneous data -->
         <td v-if="row.title" class="text-center">{{ row.type }}</td>
         <td v-if="row.title">{{ row.title }}</td>
@@ -22,7 +22,7 @@
         <td v-if="row.title">{{ row.author }}</td>
         <td v-if="row.title">{{ row.link }}</td>
         <td v-if="row.title" class="text-center">
-          <router-link :to="{ name: 'Edit', params: { id: row } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <router-link :to="{ name: 'Edit', params: { id: row.id } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
