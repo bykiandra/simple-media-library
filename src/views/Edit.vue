@@ -1,13 +1,13 @@
 <template>
-  <div class="add text-left">
-    <h3>Add New Media</h3>
+  <div class="edit text-left">
+    <h3>Edit</h3>
     <p id="success" class="hide"></p>
     <p id="error" class="hide"></p>
-    <form id="addForm" @submit.prevent="addNew">
+    <form id="editForm" @submit.prevent="editEntry(entry.title)">
       <label for="title">Title</label>
-      <input type="text" name="title" id="title">
+      <input type="text" name="title" id="title" :value="entry.title">
       <label for="type">Type</label>
-      <select name="type" id="type">
+      <select name="type" id="type" :value="entry.type">
         <option disabled selected value="">Please select</option>
         <option value="Academic Journal">Academic Journal</option>
         <option value="Article">Article</option>
@@ -20,7 +20,7 @@
         <option value="TV Series">TV Series</option>
       </select>
       <label for="status">Status</label>
-      <select name="status" id="status">
+      <select name="status" id="status" :value="entry.status">
         <option disabled selected value="">Please select</option>
         <option value="Ready to start">Ready to start</option>
         <option value="Watching">Watching</option>
@@ -29,12 +29,12 @@
         <option value="Finished">Finished</option>
       </select>
       <label for="rating">Rating</label>
-      <input type="number" name="rating" id="rating" min="0" max="5" value="0">
+      <input type="number" name="rating" id="rating" min="0" max="5" :value="entry.rating">
       <label for="author">Author</label>
-      <input type="text" name="author" id="author">
+      <input type="text" name="author" id="author" :value="entry.author">
       <label for="link">Link</label>
-      <input type="text" name="link" id="link">
-      <button type="submit">Add</button>&nbsp;
+      <input type="text" name="link" id="link" :value="entry.links">
+      <button type="submit">Edit</button>&nbsp;
       <button type="reset" class="muted-button">Clear</button>
     </form>
   </div>
@@ -44,10 +44,21 @@
 import store from "store2";
 
 export default {
-  name: "Add",
+  name: "Edit",
+  data() {
+    return {
+      entry: store(this.$route.params.title)
+    }
+  },
   methods: {
-    addNew () {
-      // TODO: need to create unique id for each entry
+    editEntry(oldTitle) {
+      // Remove any prior messages
+      let success = document.getElementById("success");
+      let error = document.getElementById("error");
+
+      if (!success.classList.contains("hide")) success.classList.add("hide");
+      if (!error.classList.contains("hide")) error.classList.add("hide");
+
       if (this.formValidate()) {
         let newTitle = document.getElementById("title").value;
         let newType = document.getElementById("type").value;
@@ -56,21 +67,21 @@ export default {
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
         let newLinks = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
         
+        store.remove(oldTitle);
         store.set(newTitle, {
           title: newTitle,
           type: newType,
           status: newStatus,
           rating: newRating,
           author: newAuthor,
-          links: newLinks     // Links because link gives back some unwanted data
-        }); // FIX: unwanted data still present
+          links: newLinks
+        });
 
-        document.getElementById("success").innerHTML = "<strong>" + newTitle + "</strong> has been successfully added.";
-        document.getElementById("success").classList.remove("hide");
-        document.getElementById("addForm").reset();
+        success.innerHTML = "<strong>" + newTitle + "</strong> has been successfully updated.";
+        success.classList.remove("hide");
       } else {
-        document.getElementById("error").innerHTML = "The highlighted fields are required.";
-        document.getElementById("error").classList.remove("hide");
+        error.innerHTML = "The highlighted fields are required.";
+        error.classList.remove("hide");
       }
     },
     formValidate () {

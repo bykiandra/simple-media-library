@@ -9,14 +9,6 @@
   </div>
 </template>
 
-<script>
-import store from "store2";
-
-export default {
-  name: 'App'
-}
-</script>
-
 <style>
 .medium-container {
   font-family: Avenir, Helvetica, Arial, sans-serif;
