@@ -1,7 +1,8 @@
 <template>
-  <div class="add">
+  <div class="add text-left">
     <h3>Add New Media</h3>
-    <p id="success" class="hidden"></p>
+    <p id="success" class="hide"></p>
+    <p id="error" class="hide"></p>
     <form @submit.prevent="addNew">
       <label for="title">Title</label>
       <input type="text" name="title" id="title">
@@ -33,7 +34,8 @@
       <input type="text" name="author" id="author">
       <label for="link">Link</label>
       <input type="text" name="link" id="link">
-      <button type="submit">Add</button>
+      <button type="submit">Add</button>&nbsp;
+      <button type="reset" class="muted-button">Clear</button>
     </form>
   </div>
 
@@ -64,7 +66,10 @@ export default {
         });
 
         document.getElementById("success").innerHTML = "<strong>" + newTitle + "</strong> has been successfully added.";
-        document.getElementById("success").classList.remove("hidden");
+        document.getElementById("success").classList.remove("hide");
+      } else {
+        document.getElementById("error").innerHTML = "The highlighted fields are required.";
+        document.getElementById("error").classList.remove("hide");
       }
     },
     formValidate () {
@@ -100,8 +105,11 @@ export default {
   border-radius: 3px;
   padding: 5px;
 }
-
-.hidden {
-  display: none;
+#error {
+  color: #e53935;
+  background-color: #ef9a9a;
+  border: 1px solid #e53935;
+  border-radius: 3px;
+  padding: 5px;
 }
 </style>
