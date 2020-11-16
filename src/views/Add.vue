@@ -3,7 +3,7 @@
     <h3>Add New Media</h3>
     <p id="success" class="hide"></p>
     <p id="error" class="hide"></p>
-    <form @submit.prevent="addNew">
+    <form id="addForm" @submit.prevent="addNew">
       <label for="title">Title</label>
       <input type="text" name="title" id="title">
       <label for="type">Type</label>
@@ -67,6 +67,7 @@ export default {
 
         document.getElementById("success").innerHTML = "<strong>" + newTitle + "</strong> has been successfully added.";
         document.getElementById("success").classList.remove("hide");
+        document.getElementById("addForm").reset();
       } else {
         document.getElementById("error").innerHTML = "The highlighted fields are required.";
         document.getElementById("error").classList.remove("hide");
