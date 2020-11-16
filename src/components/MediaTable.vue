@@ -19,15 +19,15 @@
         <td class="text-center">{{ row.status }}</td>
         <td>{{ row.rating }}</td>
         <td>{{ row.author }}</td>
-        <td>{{ row.link }}</td>
+        <td>{{ row.links }}</td>
         <td class="text-center">
-          <router-link :to="{ name: 'Edit', params: { row: row } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <router-link :to="{ name: 'Edit', params: { title: row.title } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2196F3" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
             <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
             <line x1="16" y1="5" x2="19" y2="8" />
           </svg></router-link>
-          <router-link :to="{ name: 'Delete' }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F44336" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <router-link :to="{ name: 'Delete', params: { title: row.title } }"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#F44336" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <line x1="4" y1="7" x2="20" y2="7" />
             <line x1="10" y1="11" x2="10" y2="17" />
@@ -48,7 +48,7 @@ export default {
   name: "MediaTable",
   computed: {
     data: () => {
-      return store();
+      return store.getAll();
     }
   }
 }

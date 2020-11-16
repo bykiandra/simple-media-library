@@ -1,7 +1,7 @@
 <template>
   <div class="add">
     <h3>Add New Media</h3>
-    <p id="success"></p>
+    <p id="success" class="hidden"></p>
     <form @submit.prevent="addNew">
       <label for="title">Title</label>
       <input type="text" name="title" id="title">
@@ -46,16 +46,13 @@ export default {
   name: "Add",
   methods: {
     addNew () {
-      // TODO:
-      // - Add new media to data
-      // - Either redirect to home, or display success message
       if (this.formValidate()) {
         let newTitle = document.getElementById("title").value;
         let newType = document.getElementById("type").value;
         let newStatus = document.getElementById("status").value;
         let newRating = document.getElementById("rating").value;
         let newAuthor = document.getElementById("author").value != "" ? document.getElementById("author").value : "";
-        let newLink = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
+        let newLinks = document.getElementById("link").value != "" ? document.getElementById("link").value : "";
         
         store.set(newTitle, {
           title: newTitle,
@@ -63,10 +60,11 @@ export default {
           status: newStatus,
           rating: newRating,
           author: newAuthor,
-          link: newLink
+          links: newLinks     // Links because link gives back some unwanted data
         });
 
-        document.getElementById("success").innerHTML = "Success";
+        document.getElementById("success").innerHTML = "<strong>" + newTitle + "</strong> has been successfully added.";
+        document.getElementById("success").classList.remove("hidden");
       }
     },
     formValidate () {
@@ -93,3 +91,17 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#success {
+  color: #43A047;
+  background-color: #A5D6A7;
+  border: 1px solid #43A047;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+</style>
