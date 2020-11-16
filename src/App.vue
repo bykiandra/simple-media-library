@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="medium-container">
     <h1>Simple Media Library</h1>
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-.app {
+.medium-container {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
