@@ -54,7 +54,6 @@ export default {
   name: "Add",
   methods: {
     addNew () {
-      // TODO: need to create unique id for each entry
       if (this.formValidate()) {
         let newTitle = document.getElementById("title").value;
         let newType = document.getElementById("type").value;
