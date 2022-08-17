@@ -16,7 +16,7 @@
     </div>
     <router-view/>
     <div id="footer">
-      Built by <a href="https://github.com/Saoskia" target="_blank">Saoskia</a> | <a href="https://github.com/Saoskia/simple-media-library" target="_blank">GitHub</a>
+      Built by <a href="https://github.com/crownedfoxes" target="_blank">Kiandra Ginevra</a> | <a href="https://github.com/crownedfoxes/simple-media-library" target="_blank">GitHub</a>
     </div>
   </div>
 </template>
